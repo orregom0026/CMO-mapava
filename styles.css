@@ -1,0 +1,799 @@
+/* =========================================
+   VARIABLES DE COLOR Y CONFIGURACIÓN GENERAL
+   ========================================= */
+:root {
+  --azul-oscuro: #0a3d62;
+  --azul-primario: #0b7dbf;
+  --azul-claro: #7fdbff;
+  --fondo-claro: #eaf6fb;
+  --blanco: #ffffff;
+  --gris-texto: #4a5a68;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--azul-oscuro);
+  background-color: var(--blanco);
+}
+
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* =========================================
+   HEADER
+   ========================================= */
+.header {
+  background-color: var(--blanco);
+  box-shadow: 0px 2px 10px rgba(10, 61, 98, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-icon {
+  font-size: 26px;
+  color: var(--azul-primario);
+  animation: girar 6s linear infinite;
+  display: inline-block;
+}
+
+.logo-text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  color: var(--azul-oscuro);
+  letter-spacing: 1px;
+}
+
+.nav-list {
+  display: flex;
+  gap: 35px;
+}
+
+.nav-link {
+  color: var(--azul-oscuro);
+  font-weight: 500;
+  font-size: 15px;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+/* Subrayado animado al pasar el mouse */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--azul-primario);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--azul-primario);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.btn-cotizar {
+  background-color: var(--azul-primario);
+  color: var(--blanco);
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 14px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-cotizar:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 18px rgba(11, 125, 191, 0.35);
+}
+
+/* =========================================
+   BANNER / HERO
+   ========================================= */
+.banner {
+  position: relative;
+  background: linear-gradient(135deg, var(--fondo-claro) 0%, #d7effa 100%);
+  overflow: hidden;
+  padding: 90px 30px;
+}
+
+.banner-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.banner-texto {
+  max-width: 550px;
+}
+
+.banner-eyebrow {
+  color: var(--azul-primario);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.banner-titulo {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--azul-oscuro);
+  margin-bottom: 20px;
+}
+
+.resaltado {
+  color: var(--azul-primario);
+}
+
+.banner-descripcion {
+  font-size: 16px;
+  color: var(--gris-texto);
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.banner-botones {
+  display: flex;
+  gap: 18px;
+}
+
+.btn-principal {
+  background-color: var(--azul-primario);
+  color: var(--blanco);
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-principal:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 10px 20px rgba(11, 125, 191, 0.35);
+}
+
+.btn-secundario {
+  border: 2px solid var(--azul-primario);
+  color: var(--azul-primario);
+  padding: 12px 26px;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.btn-secundario:hover {
+  background-color: var(--azul-primario);
+  color: var(--blanco);
+}
+
+/* Círculo con copo de nieve flotando (lado derecho del banner) */
+.banner-imagen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.circulo-aire {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--blanco) 0%, var(--azul-claro) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 20px 40px rgba(11, 125, 191, 0.25);
+  animation: flotar 4s ease-in-out infinite;
+}
+
+.copo {
+  font-size: 100px;
+  color: var(--azul-primario);
+  animation: girar 8s linear infinite;
+}
+
+/* Imagen dentro de los círculos (banner y nosotros) */
+.circulo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Líneas decorativas que simulan flujo de aire cruzando el banner */
+.flujo-aire {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Línea decorativa base (ya no se usa la línea recta, ahora usamos .onda) */
+
+.linea1 { top: 20%; animation-delay: 0s; }
+.linea2 { top: 50%; animation-delay: 2s; }
+.linea3 { top: 75%; animation-delay: 4s; }
+
+/* Ondas de aire: una franja de SVG con forma de "onda" que se desliza
+   horizontalmente en bucle, dando sensación de flujo de aire fresco */
+.onda {
+  position: absolute;
+  left: -50%;
+  width: 200%;
+  height: 90px;
+  background-repeat: repeat-x;
+  background-size: 300px 90px;
+  opacity: 0.5;
+  animation: ondear 10s linear infinite;
+}
+
+.onda1 {
+  top: 8%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='90' viewBox='0 0 300 90'%3E%3Cpath d='M0 45 Q 37.5 10 75 45 T 150 45 T 225 45 T 300 45' fill='none' stroke='%237fdbff' stroke-width='4'/%3E%3C/svg%3E");
+  animation-duration: 9s;
+}
+
+.onda2 {
+  top: 45%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='90' viewBox='0 0 300 90'%3E%3Cpath d='M0 45 Q 37.5 10 75 45 T 150 45 T 225 45 T 300 45' fill='none' stroke='%230b7dbf' stroke-width='3'/%3E%3C/svg%3E");
+  opacity: 0.35;
+  animation-duration: 13s;
+  animation-direction: reverse;
+}
+
+.onda3 {
+  top: 78%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='90' viewBox='0 0 300 90'%3E%3Cpath d='M0 45 Q 37.5 10 75 45 T 150 45 T 225 45 T 300 45' fill='none' stroke='%237fdbff' stroke-width='4'/%3E%3C/svg%3E");
+  animation-duration: 11s;
+}
+
+@keyframes ondear {
+  from { background-position-x: 0; }
+  to { background-position-x: 300px; }
+}
+
+/* =========================================
+   ANIMACIONES (keyframes)
+   ========================================= */
+@keyframes girar {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-18px); }
+}
+
+@keyframes deslizar {
+  from { left: -200px; }
+  to { left: 110%; }
+}
+
+/* =========================================
+   SOBRE NOSOTROS
+   ========================================= */
+.nosotros {
+  padding: 100px 30px;
+  background-color: var(--blanco);
+}
+
+.nosotros-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+/* Círculo con la llave inglesa, mismo estilo del banner pero más chico */
+.nosotros-imagen {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.nosotros-circulo {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--fondo-claro) 0%, var(--azul-claro) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 15px 30px rgba(11, 125, 191, 0.2);
+  animation: flotar 4s ease-in-out infinite;
+}
+
+.icono-nosotros {
+  font-size: 70px;
+}
+
+.nosotros-texto {
+  flex: 1;
+}
+
+.nosotros-eyebrow {
+  color: var(--azul-primario);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.nosotros-titulo {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--azul-oscuro);
+  margin-bottom: 18px;
+  line-height: 1.3;
+}
+
+.nosotros-descripcion {
+  font-size: 16px;
+  color: var(--gris-texto);
+  line-height: 1.7;
+  margin-bottom: 40px;
+  max-width: 650px;
+}
+
+/* Tarjetas de misión / visión / por qué elegirnos */
+.nosotros-cards {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: var(--fondo-claro);
+  border-radius: 16px;
+  padding: 28px 24px;
+  flex: 1;
+  min-width: 220px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 15px 30px rgba(11, 125, 191, 0.18);
+}
+
+.card-icono {
+  font-size: 28px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.card-titulo {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--azul-oscuro);
+  margin-bottom: 10px;
+}
+
+.card-texto {
+  font-size: 14px;
+  color: var(--gris-texto);
+  line-height: 1.6;
+}
+
+/* =========================================
+   SERVICIOS
+   ========================================= */
+.servicios {
+  padding: 100px 30px;
+  background-color: var(--fondo-claro);
+  text-align: center;
+}
+
+.servicios-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.servicios-eyebrow {
+  color: var(--azul-primario);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.servicios-titulo {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--azul-oscuro);
+  margin-bottom: 16px;
+}
+
+.servicios-descripcion {
+  font-size: 16px;
+  color: var(--gris-texto);
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+}
+
+.servicios-imagen {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 50px auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0px 20px 40px rgba(11, 125, 191, 0.2);
+}
+
+.servicios-imagen img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.servicios-imagen:hover img {
+  transform: scale(1.05);
+}
+
+.servicios-grid {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.servicio-card {
+  background-color: var(--blanco);
+  border-radius: 16px;
+  padding: 34px 24px;
+  flex: 1;
+  min-width: 220px;
+  max-width: 260px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.servicio-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 18px 35px rgba(11, 125, 191, 0.2);
+}
+
+/* Círculo detrás del ícono de cada servicio, gira levemente al hacer hover */
+.servicio-icono-wrap {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--fondo-claro) 0%, var(--azul-claro) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px auto;
+  transition: transform 0.4s ease;
+}
+
+.servicio-card:hover .servicio-icono-wrap {
+  transform: rotate(15deg) scale(1.08);
+}
+
+.servicio-icono {
+  font-size: 30px;
+}
+
+.servicio-titulo {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--azul-oscuro);
+  margin-bottom: 10px;
+}
+
+.servicio-texto {
+  font-size: 14px;
+  color: var(--gris-texto);
+  line-height: 1.6;
+}
+
+/* =========================================
+   CONTACTO / UBICACIÓN
+   ========================================= */
+.contacto {
+  padding: 100px 30px;
+  background-color: var(--blanco);
+}
+
+.contacto-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 60px;
+}
+
+.contacto-info {
+  flex: 1;
+}
+
+.contacto-eyebrow {
+  color: var(--azul-primario);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.contacto-titulo {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--azul-oscuro);
+  margin-bottom: 16px;
+}
+
+.contacto-descripcion {
+  font-size: 16px;
+  color: var(--gris-texto);
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.contacto-imagen {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  box-shadow: 0px 15px 30px rgba(11, 125, 191, 0.18);
+}
+
+.contacto-imagen iframe {
+  width: 100%;
+  height: 220px;
+  border: none;
+  display: block;
+}
+
+.contacto-datos {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contacto-dato {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--azul-oscuro);
+  transition: transform 0.25s ease;
+}
+
+.contacto-dato:hover {
+  transform: translateX(6px);
+}
+
+.contacto-icono {
+  font-size: 18px;
+}
+
+/* Formulario */
+.contacto-form {
+  flex: 1;
+  background-color: var(--fondo-claro);
+  border-radius: 16px;
+  padding: 34px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--azul-oscuro);
+  margin-bottom: 6px;
+  margin-top: 16px;
+}
+
+.form-label:first-child {
+  margin-top: 0;
+}
+
+.form-input {
+  border: 2px solid #d5e9f2;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--azul-oscuro);
+  background-color: var(--blanco);
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.form-input:focus {
+  border-color: var(--azul-primario);
+  box-shadow: 0px 0px 0px 4px rgba(11, 125, 191, 0.15);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.btn-form {
+  margin-top: 24px;
+  border: none;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+.footer {
+  background-color: var(--azul-oscuro);
+  padding: 30px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Íconos de redes sociales */
+.footer-social {
+  display: flex;
+  gap: 14px;
+}
+
+.footer-social a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--blanco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.footer-social a:hover {
+  background-color: var(--azul-primario);
+  transform: translateY(-5px) scale(1.1);
+}
+
+.footer-logo-text {
+  color: var(--blanco);
+}
+
+.footer-texto {
+  color: #b9d4e3;
+  font-size: 14px;
+}
+
+/* =========================================
+   RESPONSIVE (celular)
+   ========================================= */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-list {
+    gap: 18px;
+  }
+
+  .banner-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .banner-texto {
+    max-width: 100%;
+  }
+
+  .banner-botones {
+    justify-content: center;
+  }
+
+  .banner-titulo {
+    font-size: 32px;
+  }
+
+  .nosotros-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .nosotros-circulo {
+    width: 220px;
+    height: 220px;
+  }
+
+  .nosotros-descripcion {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .nosotros-cards {
+    flex-direction: column;
+  }
+
+  .servicios-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .servicio-card {
+    max-width: 100%;
+  }
+
+  .contacto-container {
+    flex-direction: column;
+  }
+
+  .servicios-imagen img {
+    height: 200px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
